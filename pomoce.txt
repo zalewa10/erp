@@ -1,0 +1,1 @@
+1. Stworzenie nowej tabeli: php artisan make:migration [nazwa_tabeli]
