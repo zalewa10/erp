@@ -30,9 +30,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::get('/tasks/{task}', function (Task $task) {
-        return view('tasks.show', compact('task'));
-    })->name('tasks.show');
+    // single-task page removed - tasks are managed via modal on /tasks/board
 });
 
 

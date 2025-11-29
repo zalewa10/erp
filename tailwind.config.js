@@ -19,4 +19,12 @@ export default {
     },
 
     plugins: [forms, daisyui],
+
+    daisyui: {
+        themes: ["light", "dark", "cupcake", "corporate"],
+        darkTheme: "dark",
+        base: true,
+        styled: true,
+        utils: true,
+    },
 };
