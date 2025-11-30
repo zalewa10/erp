@@ -9,11 +9,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css']) --}}
     @livewireStyles
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-base-100">
 
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')

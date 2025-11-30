@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('tasks.board');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -22,15 +22,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
     Route::post('/tasks', [TaskController::class, 'store']);
-    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
     Route::resource('projects', ProjectController::class);
     Route::get('/tasks/board', function () {
         return view('tasks.board');
     });
-
-
-    // single-task page removed - tasks are managed via modal on /tasks/board
 });
 
 

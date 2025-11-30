@@ -1,4 +1,5 @@
 <div class="container mx-auto p-6">
+
     <livewire:tasks.task-modal />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

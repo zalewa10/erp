@@ -15,15 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
-                        {{ __('Lista zadań') }}
-                    </x-nav-link>
+
                     <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         {{ __('Lista projektów') }}
                     </x-nav-link>
-                    <x-nav-link :href="url('/tasks/board')" :active="request()->is('tasks/board')">
-                        {{ __('Kanban') }}
-                    </x-nav-link>
+
 
                 </div>
             </div>

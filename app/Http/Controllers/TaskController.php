@@ -16,7 +16,7 @@ class TaskController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.board', compact('tasks'));
     }
     public function create()
     {

@@ -21,7 +21,7 @@ export default {
     plugins: [forms, daisyui],
 
     daisyui: {
-        themes: ["light", "dark", "cupcake", "corporate"],
+        themes: ["light", "dark", "cupcake", "corporate", "cyberpunk"],
         darkTheme: "dark",
         base: true,
         styled: true,
