@@ -25,7 +25,8 @@ class TaskModal extends Component
 
     public function openTask($taskId)
     {
-        $task = Task::find($taskId);
+        $id = is_array($taskId) ? ($taskId['taskId'] ?? $taskId[0] ?? null) : $taskId;
+        $task = Task::find($id);
 
         if (!$task) return;
 
@@ -104,6 +105,20 @@ class TaskModal extends Component
     public function close()
     {
         $this->show = false;
+        $this->reset(['taskId', 'title', 'description', 'status']);
+    }
+
+    public function delete()
+    {
+        if (!$this->taskId) return;
+
+        $task = Task::find($this->taskId);
+        if (!$task) return;
+
+        $task->delete();
+
+        $this->dispatch('taskUpdated');
+        $this->close();
     }
 
 

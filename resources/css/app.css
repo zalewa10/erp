@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .task-item {
     @apply bg-white rounded-lg shadow p-4 mb-4 cursor-pointer;
 }

@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
     Route::post('/tasks', [TaskController::class, 'store']);
+    Route::post('/tasks/delete/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
 
     Route::resource('projects', ProjectController::class);
     Route::get('/tasks/board', function () {

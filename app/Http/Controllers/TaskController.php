@@ -27,6 +27,14 @@ class TaskController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->delete();
+
+        return redirect()->route('tasks.index')->with('success', 'Zadanie zostało usunięte!');
+    }
+
     public function store(Request $request)
     {
         // walidacja
