@@ -22,6 +22,10 @@ class Task extends Model
     {
         return $this->belongsTo(Priority::class);
     }
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
     public function timeLogs()
     {
         return $this->hasMany(TaskTimeLog::class);
@@ -47,11 +51,11 @@ class Task extends Model
     protected $fillable = [
         'title',
         'description',
-        'client_id',
+        'project_id',
         'assigned_to',
         'created_by',
         'priority_id',
         'due_date',
-        'amount',
+
     ];
 }

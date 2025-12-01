@@ -14,7 +14,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with('client')->get();
-        return view('projects.index', compact('projects'));
+        $clients = Client::all();
+        return view('projects.index', compact('projects', 'clients'));
     }
 
 
@@ -57,17 +58,25 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit(string $id) {}
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'client_id' => 'nullable|exists:clients,id',
+            'amount' => 'nullable|numeric',
+            'description' => 'nullable|string',
+            'status' => 'nullable|string',
+        ]);
+
+        $project = Project::findOrFail($id);
+        $project->update($data);
+
+        return redirect()->route('projects.index')->with('success', 'Projekt został zaktualizowany.');
     }
 
     /**
@@ -75,6 +84,9 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+
+        return redirect()->route('projects.index')->with('success', 'Projekt został usunięty.');
     }
 }
